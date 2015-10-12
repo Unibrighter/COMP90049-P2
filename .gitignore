@@ -1,4 +1,8 @@
 /bin
+/out
+/.DS_Store
 .project
 /data
 test.log
+*.iml
+/.idea
