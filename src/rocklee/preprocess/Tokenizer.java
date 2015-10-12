@@ -102,9 +102,9 @@ public class Tokenizer
 	public static void main(String[] args) throws FileNotFoundException
 	{
 		
-		Scanner tweet_scanner = new Scanner(new File("E:\\train\\train.txt"));
+		Scanner tweet_scanner = new Scanner(new File("E:\\train\\fuck.txt"));
 		int count=0;
-		while(tweet_scanner.hasNextLine())
+		while(tweet_scanner.hasNext())
 		{
 			count++;
 			System.out.println(tweet_scanner.nextLine());
