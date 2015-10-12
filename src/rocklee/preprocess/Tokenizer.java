@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import javafx.scene.transform.Scale;
 
 /**
  * This class is used to tokenize the raw tweets input. Hopefully this can get
@@ -101,22 +100,22 @@ public class Tokenizer
 
 	public static void main(String[] args) throws FileNotFoundException
 	{
-		
-		Scanner tweet_scanner = new Scanner(new File("E:\\train\\fuck.txt"));
-		int count=0;
-		while(tweet_scanner.hasNext())
-		{
-			count++;
-			System.out.println(tweet_scanner.nextLine());
-		}
-		System.out.println(count);
-		
-		
-//		// get the dictionary into the memory
-//		Tweet.loadDictionary(args[0]);
 //
-//		//format out put
-//		Tokenizer.rawText2CSV(args[1], args[2]);
+//		Scanner tweet_scanner = new Scanner(new File("/Users/bitmad/DEXTER/KT_Project2/data/train/train.txt"));
+//		int count=0;
+//		while(tweet_scanner.hasNext())
+//		{
+//			count++;
+//			System.out.println(tweet_scanner.nextLine());
+//		}
+//		System.out.println(count);
+		
+		
+		// get the dictionary into the memorys
+		Tweet.loadDictionary(args[0]);
+
+		//format out put
+		Tokenizer.rawText2CSV(args[1], args[2]);
 		
 	}
 
