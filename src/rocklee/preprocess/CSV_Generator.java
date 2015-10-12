@@ -23,10 +23,13 @@ import javafx.scene.transform.Scale;
  * 
  * */
 
-public class Tokenizer
+public class CSV_Generator
 {
+	
+	public static final String CLASS_NAME="class";
+	
 	// for debug and info
-	private static Logger log = Logger.getLogger(Tokenizer.class);
+	private static Logger log = Logger.getLogger(CSV_Generator.class);
 	
 	public static void rawText2CSV(String input_path, String output_path)
 	{
@@ -53,8 +56,9 @@ public class Tokenizer
 			}
 			log.debug("All training data has been recorded!!!"+count);
 			
-			csv_writer.println(AttributeVector.getOutputAttributeInOneLine(true));
-			
+			csv_writer.print(AttributeVector.getOutputAttributeInOneLine(true));
+			csv_writer.println(CLASS_NAME);
+
 			log.debug("Begin to format CSV output!");
 			
 			for (int i = 0; i < tweet_list.size(); i++)
@@ -63,7 +67,13 @@ public class Tokenizer
 				
 				boolean[] vector_array=AttributeVector.collection2Array(tmp_tweet);
 				csv_writer.print(tmp_tweet.getTweetID1()+",");
-				csv_writer.println(Tokenizer.booleanArray2String(vector_array));
+				csv_writer.print(CSV_Generator.booleanArray2String(vector_array));
+				if(tmp_tweet.getADRClass())
+				{
+					csv_writer.println("Y");
+				}
+				else
+					csv_writer.println("N");
 			}
 			
 			csv_writer.flush();
@@ -106,7 +116,7 @@ public class Tokenizer
 		Tweet.loadDictionary(args[0]);
 
 		//format out put
-		Tokenizer.rawText2CSV(args[1], args[2]);
+		CSV_Generator.rawText2CSV(args[1], args[2]);
 		
 	}
 
