@@ -49,6 +49,11 @@ public class Tweet
 		}
 	}
 
+	public boolean getADRClass()
+	{
+		return this.adr_class;
+	}
+	
 	public Tweet(String raw_str)
 	{
 		// empty string given
