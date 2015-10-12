@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import javafx.scene.transform.Scale;
 
 /**
  * This class is used to tokenize the raw tweets input. Hopefully this can get
