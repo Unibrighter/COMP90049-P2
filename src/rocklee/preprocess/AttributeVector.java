@@ -57,6 +57,7 @@ public class AttributeVector
 		Iterator<String> iter=general_vector.iterator();
 		StringBuffer result=new StringBuffer();
 		if(withID)
+	//Êä³öid
 			result.append("id,");
 		result.append(iter.next());
 		while(iter.hasNext())
