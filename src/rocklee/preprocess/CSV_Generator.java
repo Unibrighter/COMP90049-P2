@@ -54,7 +54,8 @@ public class CSV_Generator
 				AttributeVector.addTweet(tmp_tweet);
 			}
 			log.debug("All training data has been recorded!!!"+count);
-			
+
+
 			csv_writer.print(AttributeVector.getOutputAttributeInOneLine(true));
 			csv_writer.println(CLASS_NAME);
 
