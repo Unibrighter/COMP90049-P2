@@ -68,12 +68,7 @@ public class CSV_Generator
 				boolean[] vector_array=AttributeVector.collection2Array(tmp_tweet);
 				csv_writer.print(tmp_tweet.getTweetID1()+",");
 				csv_writer.print(CSV_Generator.booleanArray2String(vector_array)+",");
-				if(tmp_tweet.getADRClass())
-				{
-					csv_writer.println("Y");
-				}
-				else
-					csv_writer.println("N");
+				csv_writer.println(tmp_tweet.getADRClass());
 			}
 			
 			csv_writer.flush();
@@ -111,7 +106,16 @@ public class CSV_Generator
 
 	public static void main(String[] args) throws FileNotFoundException
 	{
-				
+		//this part in windows can show why the "windows friendly version" is a fucking joke
+		Scanner tweet_scanner = new Scanner(new File("E:\\dev\\dev.txt"));
+		int count=0;
+		while(tweet_scanner.hasNextLine())
+		{
+			count++;
+			System.out.println(tweet_scanner.nextLine());
+		}
+		System.out.println(count);
+//		
 		// get the dictionary into the memory
 		Tweet.loadDictionary(args[0]);
 
