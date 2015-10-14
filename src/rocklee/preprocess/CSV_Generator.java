@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 import org.apache.log4j.Logger;
 
-import javafx.scene.transform.Scale;
 
 /**
  * This class is used to tokenize the raw tweets input. Hopefully this can get
@@ -26,7 +25,7 @@ import javafx.scene.transform.Scale;
 public class CSV_Generator
 {
 	
-	public static final String CLASS_NAME="class";
+	public static final String CLASS_NAME="ADR_class";
 	
 	// for debug and info
 	private static Logger log = Logger.getLogger(CSV_Generator.class);
@@ -55,7 +54,8 @@ public class CSV_Generator
 				AttributeVector.addTweet(tmp_tweet);
 			}
 			log.debug("All training data has been recorded!!!"+count);
-			
+
+
 			csv_writer.print(AttributeVector.getOutputAttributeInOneLine(true));
 			csv_writer.println(","+CLASS_NAME);
 
