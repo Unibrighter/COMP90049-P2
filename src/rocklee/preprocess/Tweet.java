@@ -16,7 +16,7 @@ public class Tweet
 	private String tweetID1 = null;
 
 	// class indicator
-	private boolean adr_class = false;
+	private String adr_class = null;
 
 	// whole content contained in the piece of tweet
 	private String fullContent = null;
@@ -49,7 +49,7 @@ public class Tweet
 		}
 	}
 
-	public boolean getADRClass()
+	public String getADRClass()
 	{
 		return this.adr_class;
 	}
@@ -94,8 +94,11 @@ public class Tweet
 		// extract tweet id
 		this.tweetID1 = tmp[0];
 
-		this.adr_class = tmp[2].equals("1") ? true : false;
 
+		//there are three possibilities :N,Y,?
+		this.adr_class = tmp[2];
+
+		
 		this.fullContent = tmp[3];
 
 		// extract tokens array
@@ -118,6 +121,7 @@ public class Tweet
 			if (Tweet.freq_dict.containsKey(tmp[i]))
 			{
 				tmp[i]=freq_dict.get(tmp[i]);
+				this.fullContent.replaceAll(tmp[i], freq_dict.get(tmp[i]));
 			}
 			this.token_list.add(tmp[i]);
 		}
@@ -137,6 +141,16 @@ public class Tweet
 		System.out.println(input_str);
 		return input_str.split("\\s+");
 
+	}
+	
+	public boolean containToken(String token_str)
+	{
+		return this.token_list.contains(token_str);
+	}
+	
+	public boolean containSubString(String aim_str)
+	{
+		return this.fullContent.indexOf(aim_str)!=-1;
 	}
 
 }
