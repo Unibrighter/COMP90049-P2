@@ -25,7 +25,7 @@ import org.apache.log4j.Logger;
 public class CSV_Generator
 {
 	
-	public static final String CLASS_NAME="class";
+	public static final String CLASS_NAME="ADR_class";
 	
 	// for debug and info
 	private static Logger log = Logger.getLogger(CSV_Generator.class);
@@ -57,7 +57,7 @@ public class CSV_Generator
 
 
 			csv_writer.print(AttributeVector.getOutputAttributeInOneLine(true));
-			csv_writer.println(CLASS_NAME);
+			csv_writer.println(","+CLASS_NAME);
 
 			log.debug("Begin to format CSV output!");
 			
@@ -67,7 +67,7 @@ public class CSV_Generator
 				
 				boolean[] vector_array=AttributeVector.collection2Array(tmp_tweet);
 				csv_writer.print(tmp_tweet.getTweetID1()+",");
-				csv_writer.print(CSV_Generator.booleanArray2String(vector_array));
+				csv_writer.print(CSV_Generator.booleanArray2String(vector_array)+",");
 				if(tmp_tweet.getADRClass())
 				{
 					csv_writer.println("Y");
