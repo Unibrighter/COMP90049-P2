@@ -31,7 +31,7 @@ public class SequenceLevelFeature
 		String tweet_content=tweet.getFullContent();
 		for (int i = 0; i < BodyPartFeature.BODY_PART_NOUN.length; i++)
 		{
-			tmp_pattern+=BodyPartFeature.BODY_PART_NOUN[i];
+			tmp_pattern+="("+BodyPartFeature.BODY_PART_NOUN[i]+")";
 			if(tweet_content.matches(tmp_pattern))
 			{
 				return true;
